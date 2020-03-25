@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :book_images, only: [:create, :index, :edit, :update, :destroy, :show] do
   	resource :book_comments, only: [:create]
   	resource :favorites, only: [:create, :destroy]
+    get :search, on: :collection
   end
 
   resources :users, only: [:index, :show, :edit, :update] do

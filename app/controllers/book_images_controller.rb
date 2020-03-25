@@ -54,6 +54,14 @@ class BookImagesController < ApplicationController
 		end
 	end
 
+	def search
+		if params[:title].present?
+			@book_images = BookImage.where('title LIKE ?', "%#{params[:title]}%")
+		else
+			@book_iamges = BookImage.none
+		end
+	end
+
 	private
 	def book_image_params
 		params.require(:book_image).permit(:title, :body, :image)
