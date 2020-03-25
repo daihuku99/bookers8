@@ -1,0 +1,35 @@
+<% if flash[:nitice] %>
+	<%= flash[:notice] %>
+<% end %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<%= render'book_images/template', book_image_new: @book_image_new, user: @user %>
+		</div>
+		<div class="col-xs-9">
+			<h1>Books</h1>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Title</th>
+						<th>Comments</th>
+						<th>Favorites</th>
+						<th colspan="4"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @book_images.each do |book_image| %>
+					<tr>
+						<td><%= link_to book_image.title, book_image_path(book_image.id) %></td>
+						<td><%= book_image.body %></td>
+						<td><%= book_image.book_comments.count %>comments</td>
+						<td><%= book_image.favorites.count %>いいね</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

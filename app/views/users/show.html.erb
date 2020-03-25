@@ -1,0 +1,31 @@
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<%= render'book_images/template', book_image_new: @book_image_new, user: @user %>
+		</div>
+		<div class="col-xs-9">
+			<h1>User info</h1>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Image</th>
+						<th colspan="2"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @book_images.each do |book_image| %>
+						<tr>
+							<td><%= link_to book_image.title, book_image_path(book_image.id) %></td>
+							<td><%= attachment_image_tag book_image, :image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
