@@ -30,16 +30,11 @@
 					</tr>
 				</tbody>
 			</table>
-
-			<% if @book_image.favorited_by?(current_user) %>
-				<%= link_to book_image_favorites_path(@book_image), method: :delete do %>
-				<h5><%= @book_image.favorites.count %>いいね</h5>
-				<% end %>
-			<% else %>
-				<%= link_to book_image_favorites_path(@book_image), method: :post do %>
-				<h5><%= @book_image.favorites.count %>いいね</h5>
-				<% end %>
-			<% end %>
+			<div class="favorite">
+				<div id="favorites_buttons_<%= @book_image.id %>">
+					<%= render partial: 'favorites/favorite', locals: { book_image: @book_image} %>
+				</div>
+			</div>
 
 			<h2><%= @book_image.book_comments.count %>件のコメント</h2>
 			<% @book_image.book_comments.each do |book_comment| %>

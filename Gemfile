@@ -74,3 +74,9 @@ gem 'jquery-rails'
 gem 'pry-byebug', group: :development
 
 gem 'rb-readline'
+
+gem 'jquery-rails'
+
+gem 'font-awesome-rails'
+
+gem 'activeadmin'

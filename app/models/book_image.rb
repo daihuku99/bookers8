@@ -12,3 +12,7 @@ class BookImage < ApplicationRecord
 		favorites.where(user_id: user.id).exists?
 	end
 end
+
+# favorited_by?(current_user, @book)
+
+# @book.
