@@ -23,6 +23,11 @@
 	box-sizing: border-box;
 }
 
+header {
+  border-bottom: 2px solid #000;
+  min-height: 25vh;
+}
+
 .header-lists {
 	float: right;
 }
@@ -37,3 +42,6 @@
 	float: right;
 }
 
+.logo {
+  margin-left: 30px;
+}
