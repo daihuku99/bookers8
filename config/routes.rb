@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   	registrations: 'users/registrations'
   }
 
-  resources :book_images, only: [:create, :index, :edit, :update, :destroy, :show] do
+  resources :book_images do
   	resource :book_comments, only: [:create]
   	resource :favorites, only: [:create, :destroy]
     get :search, on: :collection
