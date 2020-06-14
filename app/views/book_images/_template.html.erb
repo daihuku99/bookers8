@@ -19,21 +19,22 @@
 			<%= link_to 'edit', edit_user_path(user.id) %>
 		<% end %>
 
-<h1>New Book</h1>
+<% unless @path.is('book_images#show') %>
+	<h1>New Book</h1>
 
-<%= form_for(book_image_new) do |f| %>
-<%= render'layouts/error_messages', model: f.object %>
+	<%= form_for(book_image_new) do |f| %>
+	<%= render'layouts/error_messages', model: f.object %>
 
-	<h4>Title</h4>
-	<%= f.text_field :title %>
+		<h4>Title</h4>
+		<%= f.text_field :title %>
 
-	<h4>Opinion</h4>
-	<%= f.text_area :body %>
+		<h4>Opinion</h4>
+		<%= f.text_area :body %><br>
 
-	<%= attachment_image_tag @book_image, :image, fallback: 'no_image.jpg', id: :image_prev %>
-	<%= f.attachment_field :image, id: :image %>
+		<%= attachment_image_tag @book_image, :image, fallback: 'no_image.jpg', onClick: "$('#image').click()", id: :image_prev %>
+		<%= f.file_field :image, id: :image %>
 
-	<%= f.submit 'Create Book', class: 'btn btn-default' %>
+		<%= f.submit 'Create Book', class: 'btn btn-default' %>
 
+	<% end %>
 <% end %>
-
