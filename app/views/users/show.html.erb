@@ -9,23 +9,46 @@
 		</div>
 		<div class="col-xs-9">
 			<h1>User info</h1>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Title</th>
-						<th>Image</th>
-						<th colspan="2"></th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @book_images.each do |book_image| %>
+			<div class="col-xs-6">
+				<h4>Books</h4>
+				<table class="table table-striped">
+					<thead>
 						<tr>
-							<td><%= link_to book_image.title, book_image_path(book_image.id) %></td>
-							<td><%= attachment_image_tag book_image, :image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></td>
+							<th>Title</th>
+							<th>Image</th>
+							<th colspan="2"></th>
 						</tr>
-					<% end %>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						<% @book_images.each do |book_image| %>
+							<tr>
+								<td><%= link_to book_image.title, book_image_path(book_image.id) %></td>
+								<td><%= attachment_image_tag book_image, :image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-xs-6">
+				<h4>Photos</h4>
+				<table>
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Image</th>
+							<th colspan="2"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @photos.each do |photo| %>
+							<tr>
+								<td><%= link_to photo.title, photo_path(photo) %></td>
+								<td><%= attachment_image_tag photo, :image, :fill, 60, 60 %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>
