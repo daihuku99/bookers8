@@ -1,0 +1,2 @@
+class PhotoFavorite < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class PhotoFavoritesController < ApplicationController
+end
