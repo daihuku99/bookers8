@@ -1,5 +1,5 @@
 class Photo < ApplicationRecord
-  belogs_to :user
+  belongs_to :user
 
   attachment :image
 end

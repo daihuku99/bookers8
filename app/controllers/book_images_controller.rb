@@ -2,11 +2,16 @@ class BookImagesController < ApplicationController
 	layout 'books'
 	before_action :authenticate_user!
 	before_action :correct_user, only: [:edit, :update, :destroy]
+
+	def new
+		@book_image = BookImage.new
+	end
+
 	def create
 		# @book_image_new = BookImage.new(book_image_params)
 		# @book_image_new.user_id = current_user.id
-		@book_image_new = current_user.book_images.new(book_image_params)
-		if @book_image_new.save
+		@book_image = current_user.book_images.new(book_image_params)
+		if @book_image.save
 		   redirect_to book_image_path(@book_image_new.id), notice: 'You have creatad book successfully.'
 		else
 			@book_images = BookImage.all
@@ -16,14 +21,14 @@ class BookImagesController < ApplicationController
 
 	def index
 		@book_images = BookImage.all
-		@book_image_new = BookImage.new
+		@book_image = BookImage.new
 		@user = current_user
 		# book_comment = book_image.book_comment
 	end
 
 	def show
 		@book_image = BookImage.find(params[:id])
-		@book_image_new = BookImage.new
+		@book_image = BookImage.new
 		# binding.pry
 		@user = BookImage.find(params[:id]).user
 		@book_comment = BookComment.new

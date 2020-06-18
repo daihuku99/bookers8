@@ -7,6 +7,10 @@ class PhotosController < ApplicationController
   end
 
   def new
+    @photo = Photo.new
+  end
+
+  def create
     @photo = current_user.photos.new(photo_params)
     @photo.save
     redirect_to photo_path(@photo), notice: 'You have succsessfully photo saved'
@@ -20,7 +24,7 @@ class PhotosController < ApplicationController
 
   def update
     if @photo.update
-      redirect_to @photo_path(@photo), notice: 'You have succsessfully photo updated'
+      redirect_to photo_path(@photo), notice: 'You have succsessfully photo updated'
     else
       render :edit
     end

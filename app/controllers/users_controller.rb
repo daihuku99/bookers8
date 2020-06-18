@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 		# binding.pry
 		@book_images = @user.book_images
 		@book_image_new = BookImage.new
+		@photos = current_user.photos
 	end
 
 	def edit
