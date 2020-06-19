@@ -1,2 +1,29 @@
-<h1>Photos#edit</h1>
-<p>Find me in app/views/photos/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h1>Edit Photo</h1>
+
+    <%= form_with model: @photo do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %><br>
+
+      <%= f.label :detail %>
+      <%= f.text_area :detail %><br>
+
+      <%= f.label :spot %>
+      <%= f.text_field :spot %><br>
+
+      <%= f.label :prefecture %>
+      <%= f.text_field :prefecture %><br>
+
+      <%= f.label :address_city %>
+      <%= f.text_field :address_city %><br>
+
+      <%= f.label :address_street %>
+      <%= f.text_field :address_street %><br>
+
+      <%= f.attachment_field :image %><br>
+
+      <%= f.submit '編集する', class: 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>
