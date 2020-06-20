@@ -1,2 +1,31 @@
-<h1>Photos#index</h1>
-<p>Find me in app/views/photos/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <%= render'book_images/template', user: @user %>
+    </div>
+    <div class="col-xs-9">
+      <h1>Photos</h1>
+      <table class="table table-triped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Detail</th>
+            <th>Comment</th>
+            <th>Favorites</th>
+            <th colspan="4"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @photos.each do |photo| %>
+            <tr>
+              <td><%= link_to photo.title, photo_path(photo) %></td>
+              <td><%= photo.detail %></td>
+              <td><%= photo.photo_comments.count %>comments</td>
+              <td><%= photo.photo_favorites.count %>favorites</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
