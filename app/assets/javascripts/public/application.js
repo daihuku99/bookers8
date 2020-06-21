@@ -32,3 +32,10 @@ $(function(){
     readURL(this);
   });
 });
+
+function initMap(){
+  let map = new google.maps.Map(document.getElementById('map'),{
+    center: {latitude: -34.397, longitude: 150.644},
+    zoom: 8
+  });
+}

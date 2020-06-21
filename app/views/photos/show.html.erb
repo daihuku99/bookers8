@@ -7,5 +7,8 @@
     <h6><%= @photo.detail %></h6>
 
     <%= attachment_image_tag @photo, :image %>
+
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
   </div>
 </div>
